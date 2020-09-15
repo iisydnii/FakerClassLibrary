@@ -1,0 +1,12 @@
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/bin/Debug/netcoreapp3.1/FakerClassLibrary.deps.json
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/bin/Debug/netcoreapp3.1/FakerClassLibrary.runtimeconfig.json
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/bin/Debug/netcoreapp3.1/FakerClassLibrary.runtimeconfig.dev.json
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/bin/Debug/netcoreapp3.1/FakerClassLibrary.dll
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/bin/Debug/netcoreapp3.1/FakerClassLibrary.pdb
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/obj/Debug/netcoreapp3.1/FakerClassLibrary.csprojAssemblyReference.cache
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/obj/Debug/netcoreapp3.1/FakerClassLibrary.AssemblyInfoInputs.cache
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/obj/Debug/netcoreapp3.1/FakerClassLibrary.AssemblyInfo.cs
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/obj/Debug/netcoreapp3.1/FakerClassLibrary.csproj.CoreCompileInputs.cache
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/obj/Debug/netcoreapp3.1/FakerClassLibrary.dll
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/obj/Debug/netcoreapp3.1/FakerClassLibrary.pdb
+/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/obj/Debug/netcoreapp3.1/FakerClassLibrary.genruntimeconfig.cache
