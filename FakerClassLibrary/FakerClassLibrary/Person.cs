@@ -7,9 +7,9 @@ namespace FakerClassLibrary
 
         public abstract void SetBirthdate(string birthDate);
 
-        public abstract void GetLastName();
+        public abstract LastName GetLastName();
 
-        public abstract void GetBirthdate();
+        public abstract DateTime GetBirthdate();
 
         public abstract int GetAge();
 
