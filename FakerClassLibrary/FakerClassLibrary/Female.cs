@@ -4,72 +4,61 @@ using System.Linq;
 
 namespace FakerClassLibrary
 {
-    public class Female : Person
+    public class Female : Person                                                //Female inherits person abstract class
     {
-        private int day = 0;
-        private int month = 0;
-        private int year = 0;
-        private int age;
-        private LastName _lastName;
-        private LastName lastName;
-        private DateTime _birthdate;
-        private DateTime birthdate;
-        List<int> LeapYear = new List<int>();
-        Random rand = new Random();
+        private static int day;
+        private static int month;
+        private static int year;
+        private static int age;
+        List<int> LeapYear = new List<int>();                                   //List of leap years
+        Random rand = new Random();                                             //Instantating random object rand
+        DateTime date;
 
         public Female()
         {
-            this.Title = _Title;
-            this.firstName = _firstName;
-            this.lastName = _lastName;
-            this.birthdate = _birthdate;
+            this.title = Title();                                               //to set title call method Title for specs
+            this._firstName = firstName();                                      //to set _firstName call method firstName for specs
+            this._lastName = SetLastName(LastName.Brown);                       //to set _lastName call method SetLastName for specs set default
+            SetBirthdate(date = new DateTime(2015, 10, 5));                     //call method SetBirthdate for specs set default
         }
 
-        private FemaleTitle _Title;
-        public FemaleTitle Title
+        public FemaleTitle title { get; set; }                                  //Last name property
+        private FemaleTitle Title()
         {
-            get { return Title; }
-            set
-            {
-                var someTitle = new List<FemaleTitle>();
-                foreach (FemaleTitle femTitle in Enum.GetValues
+            var someTitle = new List<FemaleTitle>();
+            foreach (FemaleTitle femTitle in Enum.GetValues                     //Looping through the enums
                     (typeof(FemaleTitle)))
-                {
-                    someTitle.Add(femTitle);
-                }
-                _Title = someTitle[rand.Next(someTitle.Count)];
-            }
-        }
-        private FemaleFirstName _firstName;
-        public FemaleFirstName firstName
-        {
-            get { return firstName; }
-
-            set
             {
+                someTitle.Add(femTitle);                                        //adding the enums to list
+            }
+                return someTitle[rand.Next(someTitle.Count)];                   //random return
+        }
+
+        public FemaleFirstName _firstName { get; set; }                         //first name property 
+        private FemaleFirstName firstName()
+        {
                 var someName = new List<FemaleFirstName>();
-                foreach (FemaleFirstName fnames in Enum.GetValues
+                foreach (FemaleFirstName fnames in Enum.GetValues               //Looping through the enums
                     (typeof(FemaleFirstName)))
                 {
-                    someName.Add(fnames);
-                }
-                _firstName = someName[rand.Next(someName.Count)];
-
+                    someName.Add(fnames);                                       //adding the enums to list
             }
+                return someName[rand.Next(someName.Count)];                     //random return
         }
 
-        public override void SetLastName(LastName lastName)
+        public LastName _lastName { get; set; }                                 //Last name property 
+        private new LastName SetLastName(LastName lastName)
         {
             var someLastName = new List<LastName>();
-            foreach (LastName lastnames in Enum.GetValues(typeof(LastName)))
+            foreach (LastName lastnames in Enum.GetValues(typeof(LastName)))    //Looping through the enums
             {
-                someLastName.Add(lastnames);
+                someLastName.Add(lastnames);                                    //adding the enums to list
             }
-            _lastName = someLastName[rand.Next(someLastName.Count)];
-            //throw new NotImplementedException();
+           return someLastName[rand.Next(someLastName.Count)];                  //random return
         }
 
-        public override void SetBirthdate(DateTime birthDate)
+        public DateTime _birthdate { get; set; }                                //_birthdate property 
+        public new void SetBirthdate(DateTime birthDate)
         {
             month = rand.Next(1, 13);                                           // creates a number between 1 and 12 for months
             if (month == 2)                                                     // Februray 
@@ -100,49 +89,40 @@ namespace FakerClassLibrary
             }
             year = rand.Next(1940, 2002);                                       // creates a number between 1940 and 2002 for years
 
-            _birthdate = new DateTime(year, month, day);                         // DateTime AKA birthday set
+            _birthdate = new DateTime(year, month, day);                        // DateTime AKA birthday set
+                GetAge();                                                       //call get age 
+            }
 
-            GetAge();
-
-         //   throw new NotImplementedException();
+        public new LastName GetLastName()
+        {
+            return _lastName;                                                   //return last name
         }
 
-        public override LastName GetLastName()
+        public new DateTime GetBirthdate()
         {
-            return _lastName;
-           // throw new NotImplementedException();
+            return _birthdate;                                                  //return birthdate 
         }
 
-        public override DateTime GetBirthdate()
+        public new int GetAge()
         {
-            return _birthdate;
-            //throw new NotImplementedException();
+            DateTime now = DateTime.Now;                                        //Current Date
+            TimeSpan time = now.Subtract(_birthdate);                           //Get the age in days by subtracting the two dates
+            age = Convert.ToInt32(time.TotalDays);                              //covert to int
+            age = age / 365;                                                    //Getting age into year by dividing the days alive
+            return age;                                                         //return age
         }
 
-        public override int GetAge()
+        public new string ToString()
         {
-            DateTime now = DateTime.Now;
-            TimeSpan time = now.Subtract(_birthdate);
-            age = Convert.ToInt32(time.TotalDays);
-            age = age / 365;
-            //Console.WriteLine(_birthdate.ToString() + age);             //Testcase
-            return age;
-           // throw new NotImplementedException();
-        }
+            String output = "";
 
-        public override string ToString()
-        {
-            String input = "";
-
-            input = "\tMeet " + _Title.ToString() + " "
-                + _firstName.ToString() + " " 
-                + _lastName.ToString() + "! \nShe was born "
-                + _birthdate.ToString() 
+            output = "\tMeet " + title.ToString() + " "                         //Output for all details
+                + _firstName.ToString() + " "                                   //put into a string for later use
+                + GetLastName().ToString() + "! \nShe was born "
+                + GetBirthdate().ToString()
                 + ", that makes her " + age.ToString() + ".";
 
-            return input;
-
-            //throw new NotImplementedException();
+            return output;
         }
 
     }
