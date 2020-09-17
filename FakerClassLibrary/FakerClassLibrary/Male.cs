@@ -8,42 +8,84 @@ namespace FakerClassLibrary
         int day = 0;
         int month = 0;
         int year = 0;
-        DateTime _birthday;
-
+        int age;
         List<int> LeapYear = new List<int>();
         Random rand = new Random();
 
         public Male()
         {
+            this.Title = Title;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.birthdate = birthdate;
         }
 
-        public override void SetLastName(string lastName)
+        private MaleTitle Title
         {
+            get { return Title; }
+            set
+            {
+                var someTitle = new List<MaleTitle>();
+                foreach (MaleTitle mTitle in Enum.GetValues(typeof(MaleTitle)))
+                {
+                    someTitle.Add(mTitle);
+                }
+                Title = someTitle[rand.Next(someTitle.Count)];
+            }
+        }
+
+        private MaleFirstName firstName
+        {
+            get { return firstName; }
+
+            set
+            {
+                var someName = new List<MaleFirstName>();
+                foreach (MaleFirstName mNames in Enum.GetValues(typeof(MaleFirstName)))
+                {
+                    someName.Add(mNames);
+                }
+                firstName = someName[rand.Next(someName.Count)];
+
+            }
+        }
+
+        public override LastName lastName { get; set; }
+        public override DateTime birthdate { get; set; }
+
+        public override void SetLastName(LastName lastName)
+        {
+            var someLastName = new List<LastName>();
+            foreach (LastName lastnames in Enum.GetValues(typeof(LastName)))
+            {
+                someLastName.Add(lastnames);
+            }
+            this.lastName = someLastName[rand.Next(someLastName.Count)];
             throw new NotImplementedException();
         }
 
-        public override void SetBirthdate(string birthDate)
+        public override void SetBirthdate(DateTime birthDate)
         {
             month = rand.Next(1, 13);                                           // creates a number between 1 and 12 for months
-            if (month == 2)                                                     //Februray 
+            if (month == 2)                                                     // Februray 
             {
                 int i;
                 for (i = 1940; i <= 2002; i += 4)
                 {
-                    LeapYear.Add(i);                                            //Accounting for Leap years
+                    LeapYear.Add(i);                                            // Accounting for Leap years
                 }
 
-                foreach (int year in LeapYear)                                  //Loop and find random day for a leep year
+                foreach (var year in LeapYear)                                  // Loop and find random day for a leep year
                 {
                     day = rand.Next(1, 30);                                     // creates a number between 1 and 29 for days
                 }
 
                 if (day == 0)                                                   // if day hasnt been set it's not a leap year 
-                {                                                               //Seting day
+                {                                                               // Seting day
                     day = rand.Next(1, 29);                                     // creates a number between 1 and 28 for days
                 }
             }
-            else if ((month == 11)||(month == 9)||(month == 6)||(month == 4))   // nov., sept., june, apirl
+            else if ((month == 11) || (month == 9) || (month == 6) || (month == 4))   // nov., sept., june, apirl
             {
                 day = rand.Next(1, 31);                                         // creates a number between 1 and 30 for days
             }
@@ -53,28 +95,28 @@ namespace FakerClassLibrary
             }
             year = rand.Next(1940, 2002);                                       // creates a number between 1940 and 2002 for years
 
-            this._birthday = new DateTime(year, month, day);                    // DateTime AKA birthday set
+            birthdate = new DateTime(year, month, day);                         // DateTime AKA birthday set
 
             throw new NotImplementedException();
         }
 
         public override LastName GetLastName()
         {
+            return lastName;
             throw new NotImplementedException();
         }
 
         public override DateTime GetBirthdate()
         {
-            return this._birthday;
+            return birthdate;
             throw new NotImplementedException();
         }
 
         public override int GetAge()
         {
-            DateTime today = DateTime.Today;
-            TimeSpan timeSpan = _birthday - today;
-            int age = int.Parse(timeSpan.ToString());
-
+            DateTime now = DateTime.Now;
+            TimeSpan time = now.Subtract(birthdate);
+            age = int.Parse(time.ToString());
             return age;
             throw new NotImplementedException();
         }
@@ -82,9 +124,13 @@ namespace FakerClassLibrary
         public override string ToString()
         {
             String input = "";
+            input = "\tMeet " + Title + " " + firstName + " " + lastName +
+                "! \nShe was born " + birthdate + ", that makes her " +
+                age + ".";
             return input;
 
             throw new NotImplementedException();
         }
+
     }
 }

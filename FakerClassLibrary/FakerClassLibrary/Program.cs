@@ -6,7 +6,10 @@ namespace FakerClassLibrary
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            Female one = new Female();
+           
+            
         }
     }
 }
