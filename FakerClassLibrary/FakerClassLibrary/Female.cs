@@ -32,7 +32,8 @@ namespace FakerClassLibrary
             set
             {
                 var someTitle = new List<FemaleTitle>();
-                foreach (FemaleTitle femTitle in Enum.GetValues(typeof(FemaleTitle)))
+                foreach (FemaleTitle femTitle in Enum.GetValues
+                    (typeof(FemaleTitle)))
                 {
                     someTitle.Add(femTitle);
                 }
@@ -47,7 +48,8 @@ namespace FakerClassLibrary
             set
             {
                 var someName = new List<FemaleFirstName>();
-                foreach (FemaleFirstName fnames in Enum.GetValues(typeof(FemaleFirstName)))
+                foreach (FemaleFirstName fnames in Enum.GetValues
+                    (typeof(FemaleFirstName)))
                 {
                     someName.Add(fnames);
                 }
@@ -88,7 +90,7 @@ namespace FakerClassLibrary
                     day = rand.Next(1, 29);                                     // creates a number between 1 and 28 for days
                 }
             }
-            else if ((month == 11) || (month == 9) || (month == 6) || (month == 4))   // nov., sept., june, apirl
+            else if ((month == 11)||(month == 9)||(month == 6)||(month == 4))   // nov., sept., june, apirl
             {
                 day = rand.Next(1, 31);                                         // creates a number between 1 and 30 for days
             }
@@ -121,7 +123,9 @@ namespace FakerClassLibrary
         {
             DateTime now = DateTime.Now;
             TimeSpan time = now.Subtract(_birthdate);
-            age = int.Parse(time.ToString());
+            age = Convert.ToInt32(time.TotalDays);
+            age = age / 365;
+            //Console.WriteLine(_birthdate.ToString() + age);             //Testcase
             return age;
            // throw new NotImplementedException();
         }
@@ -129,9 +133,13 @@ namespace FakerClassLibrary
         public override string ToString()
         {
             String input = "";
-            input = "\tMeet " + this.Title + " " + this.firstName + " " + this.lastName +
-                "! \nShe was born " + this.birthdate + ", that makes her " +
-                age + ".";
+
+            input = "\tMeet " + _Title.ToString() + " "
+                + _firstName.ToString() + " " 
+                + _lastName.ToString() + "! \nShe was born "
+                + _birthdate.ToString() 
+                + ", that makes her " + age.ToString() + ".";
+
             return input;
 
             //throw new NotImplementedException();

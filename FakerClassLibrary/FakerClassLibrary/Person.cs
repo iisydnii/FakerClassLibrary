@@ -4,6 +4,7 @@ namespace FakerClassLibrary
     public abstract class Person
     {
 
+
         private LastName lastName;
         private DateTime birthdate;
 

@@ -5,21 +5,27 @@ namespace FakerClassLibrary
 {
     public class Male : Person
     {
-        int day = 0;
-        int month = 0;
-        int year = 0;
-        int age;
+        private int day = 0;
+        private int month = 0;
+        private int year = 0;
+        private int age;
+        private LastName _lastName;
         private LastName lastName;
+        private DateTime _birthdate;
         private DateTime birthdate;
         List<int> LeapYear = new List<int>();
         Random rand = new Random();
 
         public Male()
         {
-            this.Title = Title;
+            this.Title = _Title;
+            this.firstName = _firstName;
+            this.lastName = _lastName;
+            this.birthdate = _birthdate;
         }
 
-        private MaleTitle Title
+        private MaleTitle _Title;
+        public MaleTitle Title
         {
             get { return Title; }
             set
@@ -29,11 +35,12 @@ namespace FakerClassLibrary
                 {
                     someTitle.Add(mTitle);
                 }
-                Title = someTitle[rand.Next(someTitle.Count)];
+                _Title = someTitle[rand.Next(someTitle.Count)];
             }
         }
 
-        private MaleFirstName firstName
+        private MaleFirstName _firstName;
+        public MaleFirstName firstName
         {
             get { return firstName; }
 
@@ -44,7 +51,7 @@ namespace FakerClassLibrary
                 {
                     someName.Add(mNames);
                 }
-                firstName = someName[rand.Next(someName.Count)];
+                _firstName = someName[rand.Next(someName.Count)];
 
             }
         }
@@ -56,8 +63,8 @@ namespace FakerClassLibrary
             {
                 someLastName.Add(lastnames);
             }
-            this.lastName = someLastName[rand.Next(someLastName.Count)];
-            throw new NotImplementedException();
+            _lastName = someLastName[rand.Next(someLastName.Count)];
+            //throw new NotImplementedException();
         }
 
         public override void SetBirthdate(DateTime birthDate)
@@ -91,41 +98,48 @@ namespace FakerClassLibrary
             }
             year = rand.Next(1940, 2002);                                       // creates a number between 1940 and 2002 for years
 
-            birthdate = new DateTime(year, month, day);                         // DateTime AKA birthday set
+            _birthdate = new DateTime(year, month, day);                         // DateTime AKA birthday set
 
-            throw new NotImplementedException();
+            GetAge();
+           // throw new NotImplementedException();
         }
 
         public override LastName GetLastName()
         {
-            return lastName;
-            throw new NotImplementedException();
+            return _lastName;
+            // throw new NotImplementedException();
         }
 
         public override DateTime GetBirthdate()
         {
-            return birthdate;
-            throw new NotImplementedException();
+            return _birthdate;
+            //throw new NotImplementedException();
         }
 
         public override int GetAge()
         {
             DateTime now = DateTime.Now;
-            TimeSpan time = now.Subtract(birthdate);
-            age = int.Parse(time.ToString());
+            TimeSpan time = now.Subtract(_birthdate);
+            age = Convert.ToInt32(time.TotalDays);
+            age = age / 365;
+            //Console.WriteLine(_birthdate.ToString() + age);             //Testcase
             return age;
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public override string ToString()
         {
             String input = "";
-            input = "\tMeet " + Title + " " + firstName + " " + lastName +
-                "! \nShe was born " + birthdate + ", that makes her " +
-                age + ".";
+
+            input = "\tMeet " + _Title.ToString() + " "
+                + _firstName.ToString() + " "
+                + _lastName.ToString() + "! \nHe was born "
+                + _birthdate.ToString()
+                + ", that makes him " + age.ToString() + ".";
+
             return input;
 
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
     }
