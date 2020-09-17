@@ -4,9 +4,8 @@ namespace FakerClassLibrary
     public abstract class Person
     {
 
-        public abstract LastName lastName { get; set; }
-
-        public abstract DateTime birthdate { get; set; }
+        private LastName lastName;
+        private DateTime birthdate;
 
         public abstract void SetLastName(LastName lastName);
 

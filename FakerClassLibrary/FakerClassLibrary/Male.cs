@@ -9,15 +9,14 @@ namespace FakerClassLibrary
         int month = 0;
         int year = 0;
         int age;
+        private LastName lastName;
+        private DateTime birthdate;
         List<int> LeapYear = new List<int>();
         Random rand = new Random();
 
         public Male()
         {
             this.Title = Title;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.birthdate = birthdate;
         }
 
         private MaleTitle Title
@@ -49,9 +48,6 @@ namespace FakerClassLibrary
 
             }
         }
-
-        public override LastName lastName { get; set; }
-        public override DateTime birthdate { get; set; }
 
         public override void SetLastName(LastName lastName)
         {
