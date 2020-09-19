@@ -1,4 +1,12 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////////////////// //
+// Project: FakerClassLibrary
+// File Name: Male.cs
+// Description: Class for Male persons
+// Course: CSCI-2910-940
+// Author: Sydni Ward
+// Created: 09/19/2020
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
 
 namespace FakerClassLibrary
@@ -117,7 +125,7 @@ namespace FakerClassLibrary
         {
             String input = "";
 
-            input = "\tMeet " + title.ToString() + " "                          //Output for all details
+            input = "\n\tMeet " + title.ToString() + " "                          //Output for all details
                 + _firstName.ToString() + " "                                   //put into a string for later use
                 + GetLastName().ToString() + "! \nHe was born "
                 + GetBirthdate().ToString()

@@ -1,4 +1,12 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////////////////// //
+// Project: FakerClassLibrary
+// File Name: Female.cs
+// Description: class for Female persons
+// Course: CSCI-2910-940
+// Author: Sydni Ward
+// Created: 09/19/2020
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -116,7 +124,7 @@ namespace FakerClassLibrary
         {
             String output = "";
 
-            output = "\tMeet " + title.ToString() + " "                         //Output for all details
+            output = "\n\tMeet " + title.ToString() + " "                         //Output for all details
                 + _firstName.ToString() + " "                                   //put into a string for later use
                 + GetLastName().ToString() + "! \nShe was born "
                 + GetBirthdate().ToString()

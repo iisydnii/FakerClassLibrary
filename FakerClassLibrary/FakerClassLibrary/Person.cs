@@ -1,9 +1,16 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////////////////// //
+// Project: FakerClassLibrary
+// File Name: Person.cs
+// Description: Abstract class is the parent of Female and Male
+// Course: CSCI-2910-940
+// Author: Sydni Ward
+// Created: 09/19/2020
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
 namespace FakerClassLibrary
 {
     public abstract class Person
     {
-        //Address has = new Address();
         private Address address { get; set; }
         private LastName lastName { get; set; }
         private DateTime birthdate { get; set; }
