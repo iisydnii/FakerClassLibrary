@@ -3,40 +3,23 @@ namespace FakerClassLibrary
 {
     public abstract class Person
     {
-
+        //Address has = new Address();
         private Address address { get; set; }
         private LastName lastName { get; set; }
         private DateTime birthdate { get; set; }
 
-        public void SetLastName(LastName lastName)
-        {
-        }
+        public abstract void SetLastName(LastName lastName);
 
-        public void SetBirthdate(DateTime birthDate)
-        {
-        }
+        public abstract void SetBirthdate(DateTime birthDate);
 
-        public LastName GetLastName()
-        {
-            return lastName;
-        }
+        public abstract LastName GetLastName();
 
-        public DateTime GetBirthdate()
-        {
-            return birthdate;
-        }
+        public abstract DateTime GetBirthdate();
 
-        public int GetAge()
-        {
-            int age = 0;
-            return age;
-        }
+        public abstract int GetAge();
 
-        public string ToString()
-        {
-            String input = "";
-            return input;
-        }
+        public abstract string ToString();
+
 
     }
 }

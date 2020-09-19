@@ -17,11 +17,11 @@ namespace FakerClassLibrary
         {
             this.title = Title();                                               //to set title call method Title for specs
             this._firstName = firstName();                                      //to set _firstName call method firstName for specs
-            this._lastName = SetLastName(LastName.Brown);                       //to set _lastName call method SetLastName for specs set default
+            SetLastName(LastName.Brown);                                        //to set _lastName call method SetLastName for specs set default
             SetBirthdate(date = new DateTime(2015, 10, 5));                     //call method SetBirthdate for specs set default
         }
 
-        public MaleTitle title { get; set; }                                     //Last name property
+        private MaleTitle title { get; set; }                                     //Last name property
         private MaleTitle Title()
         {
             var someTitle = new List<MaleTitle>();
@@ -35,7 +35,7 @@ namespace FakerClassLibrary
 
         }
 
-        public MaleFirstName _firstName { get; set; }                            //first name property 
+        private MaleFirstName _firstName { get; set; }                            //first name property 
         private MaleFirstName firstName()
         {
             var someName = new List<MaleFirstName>();
@@ -47,19 +47,19 @@ namespace FakerClassLibrary
             return someName[rand.Next(someName.Count)];                         //random return
         }
 
-        public LastName _lastName { get; set; }                                 //Last name property 
-        private new LastName SetLastName(LastName lastName)
+        private LastName lastName { get; set; }                                 //Last name property 
+        public override void SetLastName(LastName lastName)
         {
             var someLastName = new List<LastName>();
             foreach (LastName lastnames in Enum.GetValues(typeof(LastName)))    //Looping through the enums
             {
                 someLastName.Add(lastnames);                                    //adding the enums to list
             }
-            return someLastName[rand.Next(someLastName.Count)];                 //random return
+            this.lastName = someLastName[rand.Next(someLastName.Count)];                 //random return
         }
 
-        public DateTime _birthdate { get; set; }                                //_birthdate property 
-        public new void SetBirthdate(DateTime birthDate)
+        private DateTime birthdate { get; set; }                                //_birthdate property 
+        public override void SetBirthdate(DateTime birthDate)
         {
             month = rand.Next(1, 13);                                           // creates a number between 1 and 12 for months
             if (month == 2)                                                     // Februray 
@@ -90,30 +90,30 @@ namespace FakerClassLibrary
             }
             year = rand.Next(1940, 2002);                                       // creates a number between 1940 and 2002 for years
 
-            _birthdate = new DateTime(year, month, day);                        // DateTime AKA birthday set
+            birthdate = new DateTime(year, month, day);                        // DateTime AKA birthday set
             GetAge();
         }
 
-        public new LastName GetLastName()
+        public override LastName GetLastName()
         {
-            return _lastName;                                                   //return last name
+            return lastName;                                                   //return last name
         }
 
-        public new DateTime GetBirthdate()
+        public override DateTime GetBirthdate()
         {
-            return _birthdate;                                                  //return birthdate
+            return birthdate;                                                  //return birthdate
         }
 
-        public new int GetAge()
+        public override int GetAge()
         {
             DateTime now = DateTime.Now;                                        //Current Date
-            TimeSpan time = now.Subtract(_birthdate);                           //Get the age in days by subtracting the two dates
+            TimeSpan time = now.Subtract(birthdate);                           //Get the age in days by subtracting the two dates
             age = Convert.ToInt32(time.TotalDays);                              //covert to int
             age = age / 365;                                                    //Getting age into year by dividing the days alive
             return age;                                                         //return age
         }
 
-        public new string ToString()
+        public override string ToString()
         {
             String input = "";
 

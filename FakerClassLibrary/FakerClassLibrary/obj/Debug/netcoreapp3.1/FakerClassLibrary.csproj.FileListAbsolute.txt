@@ -9,4 +9,3 @@
 /Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/obj/Debug/netcoreapp3.1/FakerClassLibrary.dll
 /Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/obj/Debug/netcoreapp3.1/FakerClassLibrary.pdb
 /Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/obj/Debug/netcoreapp3.1/FakerClassLibrary.genruntimeconfig.cache
-/Users/sydniward/Desktop/Server Side/Projects/assignment-3-faker-class-library-iisydnii/FakerClassLibrary/FakerClassLibrary/obj/Debug/netcoreapp3.1/FakerClassLibrary.csprojAssemblyReference.cache
