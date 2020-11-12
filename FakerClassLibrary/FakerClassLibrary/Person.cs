@@ -14,7 +14,6 @@ namespace FakerClassLibrary
         private Address address { get; set; }
         private LastName lastName { get; set; }
         private DateTime birthdate { get; set; }
-
         public abstract void SetLastName(LastName lastName);
 
         public abstract void SetBirthdate(DateTime birthDate);
